@@ -326,6 +326,85 @@
       border: 1px solid rgba(255,255,255,.07);
     }
 
+    .downloads {
+      margin-top: 52px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .download-card {
+      padding: 30px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .download-card.primary {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(118,109,255,.22), transparent 45%),
+        rgba(255,255,255,.05);
+    }
+
+    .download-card h3 {
+      margin: 14px 0 8px;
+      font-size: 27px;
+    }
+
+    .download-card p {
+      color: #989faf;
+      min-height: 52px;
+    }
+
+    .version {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      color: #b9b5ff;
+      border: 1px solid rgba(140,135,255,.25);
+      background: rgba(140,135,255,.08);
+    }
+
+    .hash {
+      margin-top: 18px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #686f7e;
+      word-break: break-all;
+    }
+
+    .qr-box {
+      margin-top: 34px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .qr-box img {
+      width: 140px;
+      height: 140px;
+      padding: 8px;
+      border-radius: 14px;
+      background: white;
+    }
+
+    .qr-box strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .qr-box span {
+      color: #969dac;
+      font-size: 14px;
+    }
+
     .final {
       text-align: center;
       padding: 130px 0 140px;
@@ -391,8 +470,14 @@
         gap: 42px;
       }
 
-      .features {
+      .features,
+      .downloads {
         grid-template-columns: 1fr;
+      }
+
+      .qr-box {
+        flex-direction: column;
+        text-align: center;
       }
 
       .hero-panel {
@@ -430,9 +515,7 @@
            rel="noopener">4PDA</a>
         <a class="btn btn-primary download-nav"
            style="min-height:42px;padding:0 17px;border-radius:11px"
-           href="https://4pda.to/forum/index.php?showtopic=1122360"
-           target="_blank"
-           rel="noopener">Скачать</a>
+           href="https://github.com/Commodo163/tvbox-site/releases/download/tvbox-2.0.4/TVbox_2.0.4.apk">Скачать</a>
       </div>
     </nav>
   </div>
@@ -459,10 +542,8 @@
 
     <div class="actions">
       <a class="btn btn-primary"
-         href="https://4pda.to/forum/index.php?showtopic=1122360"
-         target="_blank"
-         rel="noopener">
-         Скачать TVbox
+         href="https://github.com/Commodo163/tvbox-site/releases/download/tvbox-2.0.4/TVbox_2.0.4.apk">
+         Скачать TVbox 2.0.4
       </a>
 
       <a class="btn btn-secondary" href="#features">
@@ -571,6 +652,73 @@
   </div>
 </section>
 
+
+<section class="section" id="download">
+  <div class="wrap">
+
+    <div class="section-kicker">Загрузка</div>
+
+    <h2>Выберите приложение.</h2>
+
+    <p class="section-copy">
+      APK загружаются напрямую из официального GitHub-репозитория TVbox.
+      Никаких промежуточных сайтов и рекламных загрузчиков.
+    </p>
+
+    <div class="downloads">
+
+      <article class="download-card primary">
+        <span class="version">АКТУАЛЬНАЯ ВЕРСИЯ · 2.0.4</span>
+        <h3>📺 TVbox</h3>
+        <p>
+          Основное приложение TVbox: телевидение и медиавозможности
+          для Android TV и Google TV.
+        </p>
+        <a class="btn btn-primary" href="https://github.com/Commodo163/tvbox-site/releases/download/tvbox-2.0.4/TVbox_2.0.4.apk">
+          Скачать TVbox 2.0.4
+        </a>
+        <div class="hash">
+          SHA-256:<br>
+          722baaf5a8db8be08ea06403f77208ea54655f3bb1827d529c19fac7bd82ae31
+        </div>
+      </article>
+
+      <article class="download-card">
+        <span class="version">ВЕРСИЯ · 1.0.2</span>
+        <h3>🏠 TVboxHome</h3>
+        <p>
+          Лаунчер TVbox для удобного запуска ТВ, кино,
+          YouTube и других приложений с одного экрана.
+        </p>
+        <a class="btn btn-secondary" href="https://github.com/Commodo163/tvbox-site/releases/download/tvbox-2.0.4/TVboxHome_1.0.2.apk">
+          Скачать TVboxHome 1.0.2
+        </a>
+        <div class="hash">
+          SHA-256:<br>
+          46e1732f4b5e7b62045803d4650c7a489fa3621848374c41907a6042e9ee16d7
+        </div>
+      </article>
+
+    </div>
+
+    <div class="qr-box">
+      <img
+        src="https://quickchart.io/qr?text=https://commodo163.github.io/tvbox-site/&size=280"
+        alt="QR-код сайта TVbox"
+        loading="lazy">
+      <div>
+        <strong>Откройте TVbox на телефоне</strong>
+        <span>
+          Отсканируйте QR-код камерой телефона.
+          Он ведёт на официальный сайт TVbox, поэтому останется актуальным
+          и после выхода следующих версий.
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section class="section" id="devices">
   <div class="wrap">
 
@@ -607,10 +755,16 @@
   </p>
 
   <a class="btn btn-primary"
+     href="https://github.com/Commodo163/tvbox-site/releases/download/tvbox-2.0.4/TVbox_2.0.4.apk">
+     Скачать TVbox 2.0.4
+  </a>
+
+  <a class="btn btn-secondary"
+     style="margin-left:10px"
      href="https://4pda.to/forum/index.php?showtopic=1122360"
      target="_blank"
      rel="noopener">
-     Скачать TVbox
+     Обсуждение на 4PDA
   </a>
 
 </section>
