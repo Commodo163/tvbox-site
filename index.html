@@ -1164,6 +1164,41 @@
   }
   </script>
 
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://commodo163.github.io/tvbox-site/#website",
+    "url": "https://commodo163.github.io/tvbox-site/",
+    "name": "TVbox",
+    "alternateName": [
+      "TVbox Android TV",
+      "TVbox для Android TV"
+    ],
+    "description": "TVbox — телевидение, кинотеатр и домашний экран TVboxHome для Android TV и Google TV.",
+    "inLanguage": "ru",
+    "publisher": {
+      "@id": "https://commodo163.github.io/tvbox-site/#organization"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://commodo163.github.io/tvbox-site/#organization",
+    "name": "TVbox Team",
+    "url": "https://commodo163.github.io/tvbox-site/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://commodo163.github.io/tvbox-site/assets/icons/tvbox.png"
+    },
+    "email": "tvbox.team@proton.me"
+  }
+  </script>
+
 </head>
 
 <body>
@@ -1674,9 +1709,15 @@
       </div>
 
       <div class="live-stats">
+
         <span class="live-stat">
           <span class="live-dot"></span>
-          Посещений сайта:
+          Уникальных посетителей:
+          <strong id="visitor-unique">—</strong>
+        </span>
+
+        <span class="live-stat">
+          Просмотров:
           <strong id="visitor-total">—</strong>
         </span>
 
@@ -1684,6 +1725,7 @@
           ↓ Скачиваний APK:
           <strong id="downloads-footer">—</strong>
         </span>
+
       </div>
 
     </div>
@@ -1788,11 +1830,21 @@
     if (!response.ok) return;
 
     const data = await response.json();
-    const el = document.getElementById('visitor-total');
 
-    if (el && data && data.count) {
-      el.textContent = data.count;
+    const uniqueEl = document.getElementById('visitor-unique');
+    const totalEl = document.getElementById('visitor-total');
+
+    const fmt = value =>
+      new Intl.NumberFormat('ru-RU').format(Number(value || 0));
+
+    if (uniqueEl) {
+      uniqueEl.textContent = fmt(data.count_unique);
     }
+
+    if (totalEl) {
+      totalEl.textContent = fmt(data.count);
+    }
+
   } catch (e) {
     console.debug('Visitor counter unavailable');
   }
