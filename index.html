@@ -405,6 +405,63 @@
       font-size: 14px;
     }
 
+    .press-box {
+      margin-top: 46px;
+      padding: 42px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(80,190,255,.12), transparent 38%),
+        rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .press-box h3 {
+      font-size: 28px;
+      margin: 0 0 14px;
+    }
+
+    .press-box p {
+      color: #9da4b3;
+      margin: 0 0 18px;
+    }
+
+    .press-list {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .press-list li {
+      padding: 11px 0;
+      color: #b6bdca;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .press-note {
+      padding: 22px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .press-note strong {
+      display: block;
+      color: #f4f5f8;
+      margin-bottom: 8px;
+    }
+
+    .press-note span {
+      color: #9299a8;
+      font-size: 14px;
+    }
+
     .final {
       text-align: center;
       padding: 130px 0 140px;
@@ -480,6 +537,14 @@
         text-align: center;
       }
 
+      .press-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .press-box {
+        padding: 28px;
+      }
+
       .hero-panel {
         padding: 14px;
         border-radius: 24px;
@@ -510,6 +575,7 @@
       <div class="nav-links">
         <a href="#features">Возможности</a>
         <a href="#devices">Устройства</a>
+        <a href="#press">Для СМИ</a>
         <a href="https://4pda.to/forum/index.php?showtopic=1122360"
            target="_blank"
            rel="noopener">4PDA</a>
@@ -738,6 +804,70 @@
       <span class="device">Mi Box</span>
       <span class="device">NVIDIA Shield TV</span>
       <span class="device">TV Box</span>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="press">
+  <div class="wrap">
+
+    <div class="section-kicker">Для СМИ и авторов</div>
+
+    <h2>Хотите протестировать<br>TVbox?</h2>
+
+    <p class="section-copy">
+      Мы открыты для независимых обзоров, сравнений и тестирования
+      TVbox на телевизорах и Android TV-приставках.
+    </p>
+
+    <div class="press-box">
+      <div class="press-grid">
+
+        <div>
+          <h3>TVbox Press</h3>
+
+          <p>
+            Вы можете свободно протестировать актуальные публичные версии
+            TVbox и TVboxHome и рассказать своей аудитории о результатах.
+          </p>
+
+          <ul class="press-list">
+            <li>✓ Независимый обзор — без требований к оценке</li>
+            <li>✓ Тестирование на Android TV и Google TV</li>
+            <li>✓ Сравнение с другими TV-приложениями</li>
+            <li>✓ Использование официальных скриншотов проекта</li>
+            <li>✓ Ссылки на официальные APK</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn btn-primary"
+               href="https://github.com/Commodo163/tvbox-site/releases/tag/tvbox-2.0.4"
+               target="_blank"
+               rel="noopener">
+               Получить APK
+            </a>
+
+            <a class="btn btn-secondary"
+               href="https://4pda.to/forum/index.php?showtopic=1122360"
+               target="_blank"
+               rel="noopener">
+               TVbox на 4PDA
+            </a>
+          </div>
+        </div>
+
+        <div class="press-note">
+          <strong>Контакт TVbox Team</strong>
+
+          <span>
+            Официальный контакт для редакций и авторов появится здесь
+            после запуска отдельного адреса проекта.
+          </span>
+        </div>
+
+      </div>
     </div>
 
   </div>
