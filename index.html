@@ -912,6 +912,39 @@
       font-size: 13px;
     }
 
+    .live-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 26px auto 0;
+    }
+
+    .live-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 999px;
+      background: rgba(255,255,255,.035);
+      color: #858d9d;
+      font-size: 12px;
+    }
+
+    .live-stat strong {
+      color: #dfe3ec;
+      font-weight: 760;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #31d9ff;
+      box-shadow: 0 0 12px rgba(49,217,255,.75);
+    }
+
     .footer-links {
       display: flex;
       gap: 19px;
@@ -1640,6 +1673,19 @@
 
       </div>
 
+      <div class="live-stats">
+        <span class="live-stat">
+          <span class="live-dot"></span>
+          Посещений сайта:
+          <strong id="visitor-total">—</strong>
+        </span>
+
+        <span class="live-stat">
+          ↓ Скачиваний APK:
+          <strong id="downloads-footer">—</strong>
+        </span>
+      </div>
+
     </div>
   </section>
 
@@ -1722,6 +1768,59 @@
   } catch (e) {
     console.debug('Download stats unavailable');
   }
+})();
+</script>
+
+
+<script
+  data-goatcounter="https://tvbox.goatcounter.com/count"
+  async
+  src="https://gc.zgo.at/count.js"></script>
+
+<script>
+(async function loadVisitorTotal() {
+  try {
+    const response = await fetch(
+      'https://tvbox.goatcounter.com/counter/TOTAL.json',
+      { cache: 'no-store' }
+    );
+
+    if (!response.ok) return;
+
+    const data = await response.json();
+    const el = document.getElementById('visitor-total');
+
+    if (el && data && data.count) {
+      el.textContent = data.count;
+    }
+  } catch (e) {
+    console.debug('Visitor counter unavailable');
+  }
+})();
+</script>
+
+<script>
+(function mirrorDownloadsToFooter() {
+  const target = document.getElementById('downloads-footer');
+  const source = document.getElementById('all-downloads');
+
+  if (!target || !source) return;
+
+  const update = () => {
+    const value = source.textContent.trim();
+    if (value && value !== 'загрузка…') {
+      target.textContent = value;
+    }
+  };
+
+  update();
+
+  const observer = new MutationObserver(update);
+  observer.observe(source, {
+    childList: true,
+    characterData: true,
+    subtree: true
+  });
 })();
 </script>
 
