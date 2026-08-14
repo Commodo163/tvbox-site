@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://commodo163.github.io/tvbox-site/sitemap.xml
